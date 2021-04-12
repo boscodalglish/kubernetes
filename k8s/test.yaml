@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx1
+  name: nginx1
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - sleep 3600; ls
+    image: nginx
+    name: nginx1
+    resources: {}
+  - args:
+    - /bin/sh
+    - -c
+    - echo Hello world; sleep 3600
+    image: nginx
+    name: nginx2
+    resources: {}
+  - args:
+    - /bin/sh
+    - -c
+    - echo this is third container; sleep 3600
+    image: nginx
+    name: nginx3
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
